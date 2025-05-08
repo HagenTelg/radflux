@@ -1,0 +1,41 @@
+NOTE that all codes require that a file be created that lists the input files to be processed, one file name per line, and these files must be listed in chronological order. Each code also requires a configuration file named with a ".cnf" extension in the same directory as the executable. Example files are provided. 
+
+====================================
+
+After properly setting up the config file, run the first code (swclidnz). Note that two files named "Swlastdy.cfn" and "Swlastdy.cfw" and an input file list in chronological order in a file named "inputfls.dir" must be in the same directory as the executable. Samples of these files have been provided. The first two are "last clear enough day" coefficients files needed for the program to have coefficients to interpolate from in operational monthly processing. The last the user must produce as noted at the beginning of this document.
+This code produces a LOT of output files in the processing, most of which do not need to be saved. The primary output files have a ".swf" extension. Other files that I find are very useful to save are named:
+swlastdy.cfn
+swlastdy.cfw
+swclreq3.asc 
+swclrid1.day 
+swclrid3.day 
+clrcoef3.asc
+swfcgday.asc
+clrndr*.asc files
+alb_cof*.asc
+alb*.end files
+alb*.asc files
+
+I have included a sample "clean up" DOS batch file (move_swf7za.bat) that I use to clean up after a run. The batch file creates a subdirectory named "swf" and either moves or copies files there that I usually save, and uses the "7zip" program to compress some files into zip files to save (these are optional) and deletes all else. 
+
+This code can be run to process many years of data. In that case, or for the first run for any given site, using the daily fitting mode you need to examine the "swclreq3.asc" file, which lists each days date, and the coefficients if any that were produced (-9s otherwise). You need to look at the start of the file, and delete any days ".swf" files from the run before the first full set of coefficients were produced. This is because before that date up to the day before the first "clear enough" day that could produce coefficients that passed all coefficient tests, there are no legitimate coefficients prior to that to interpolate FROM. Thus the clear-sky estimates in those files are bogus. If the code is run in "one fit for all" mode then this deleting of the early ".swf" files is not necessary.
+
+For the files at the end of the run, those after the last "clear enough" fitted day will be empty, since there is no coefficients after that day to interpolate TO. The last day coefficients and date are stored in the "swlastdy" files. If the code is then run operationally from this first run on, then the input data files for the days after the last "clear enough" day need to be included in the next processing run, and the initial coefficients to be interpolated from are read from the "swlastdy" files. 
+
+One exception to the above is for sites that are cloudy most of the time such that "clear enough" days for fitting are few and far between. A rule of thumb I use is that the site must have at least 3 or 4 detected "clear enough" days where all 4 of the coefficients also pass the coefficient testing in every month of the year in order for that site to be run in "daily" fitting mode. If not then the processing should be set for "one fit for all data" mode. In this case the processing can still be done monthly, but several (3-4) months of input files prior to the month being processed should also be included in the processing. This way, the coefficients are allowed to evolve through time across the processing year, with no large discontinuities between months. Once this multi-month run is finished, then only the last month output is saved as the processed month (do not replace the previous months output files that were included in this run). 
+
+But even so, there is sometimes a catch. If there are many "clear enough" days in a given month, then the "one fit" mode of processing does not do well. So if the site has "wet" and "dry" seasons, for example Darwin Australia, where the dry season is best processed using daily fitting and the wet season best with "one fit" processing, then you will have to determine the start and end of each season and process those months using the appropriate mode.
+=============================== 
+
+After the first code, the second code (Armswzcf.exe) is run that uses the ".swf" files produced by the first code as input files. Again a listing of input files in chronological order to be processed in a file named "swf.dir" that needs to be created in the same directory as the executable. An example of this "directory" file is included.
+
+This code does not produce many extraneous output files other than the ones set for in output files setting in the config file. If that flag is set to "2" as I run it, then the output includes ".swc" files that are at the same resolution as the input files and data, and an ".a15" file that contains 15-minute averages for the whole run. Any other files, such as the "swf.dir" file or even the ".a15" file, do not need to be saved if you don't want. 
+==========================================  
+
+After the second code run, the third code is run which uses the output from the second code as input. Again a listing of input files in chronological order to be processed in a file named "Clr_LWdn2.dir" that needs to be created in the same directory as the executable. An example of this "directory" file is included.
+
+This code requires that an initial "throw away" run be done for each site in order to produce the "Clr_LWdn_diagnostics.asc" file that is the output of the daylight detected clear-sky statistical analysis of Ta-Te difference and LW standard deviation to be used in the limits settings for LW effective clear-sky detection, and the RH limit for use with the RH factor. A sample "Clr_LWdn_diagnostics.asc" file from a Barrow, Alaska run is included.
+
+Once the LW effective clear sky detection and RH limits are set, another long-time run should be run in order to determine usable "RH Factor" coefficients (RH Flag set to "1"). Operational runs there after need to set the RH Flag to "3" (use previous coefficients) and the "Clr_LWdn.rhc" file must be in the same directory as the executable. 
+
+Thereafter the code is run monthly (or so) the same as and following the first two codes. 

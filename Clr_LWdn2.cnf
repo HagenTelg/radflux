@@ -1,0 +1,44 @@
+swc\     *path to input files (incl final "\")
+   ****** the following line is the XtraVar header line, 11 char spacing for each declared XtraVar, max 400 tot char ********
+       LWdTc       LWdDt       W_dir
+0                    * extra output file flag (0/1/2/3 for none/allclr/15-minute/both files)
+1 75.0 35.0     * RHfac flag (0/1/2/3 for [none]/[calc coeff]/[use std coeff]/[use prev coeff]), RHlim for data separation (real, %), max RHFlux limit (set to -99 to deactivate)
+30 5 1          * min num PER DAY to calc LW clear-sky avgs, min num per 15-min for L15 files, # min data resolution
+0.5 1.5              * min sky cover limit for calc of CBT, max allowed n2d2n interp stdev multiplier (real)
+1.16 0.87 0.8      * tau eq coefficient, assymetry parameters for liq and ice (first is default) (ex: 1.16 0.87 0.8)
+248.0 1           * Tclim liq/ice temperature limit (K), use Te and limit for which g (0/1 for n/y) (ex: 248.0  1)
+0.18 0.90 2 0         *  default albedo, min sky cover limits for cloud tau calc, SWup flag (0/1/2=n/alb/swup), TSW flag (0/1 to use Sum/Global as primary SW)
+1.08 1.5 14.0 1      * limits for LW clear detection: e ratio limit (le), LW StDEv limit (le), Ta-Te difference limit (gt), if CLW>LW (1) or ClrFlg=1or2 (2) or both (3) then set CLW=LW flag (0/1/2/3)
+7                    * nx - number of extra variables in *.swc file to include (0-40 max)
+2 2                  * nTa - of nx, which is the location of Ta (0 for none), T Type (1/2/3 for C/K/F)
+3 1 10.0                 * nRH - of nx, which is the location of RH (0 for none), RH type (1/2 for %/Ratio), min allowable RH (%)
+0 1                  * nVprs - of nx, which is the location of VPrs (0 for none), Vprs type (1/2 for mb/Kpsc)
+1                    * nLWdn - of nx, which is the location of LWdn (0 for none)
+0                    * nLWup - of nx, which is the location of LWup (0 for none)
+6                    * nWspd - of nx, which is the location of Wspd (0 for none)
+-98.0                        * errlim - limit check for xtravar1 "bad data", must be > actual 
+-98.0                        * errlim - limit check for xtravar2 "bad data", must be > actual 
+-98.0                        * errlim - limit check for xtravar3 "bad data", must be > actual 
+-98.0                        * errlim - limit check for xtravar4 "bad data", must be > actual 
+-98.0                        * errlim - limit check for xtravar5 "bad data", must be > actual 
+-98.0                        * errlim - limit check for xtravar6 "bad data", must be > actual 
+-98.0                        * errlim - limit check for xtravar7 "bad data", must be > actual 
+-98.0                        * errlim - limit check for xtravar8 "bad data", must be > actual 
+-98.0                        * errlim - limit check for xtravar9 "bad data", must be > actual 
+-98.0                        * errlim - limit check for xtravar10 "bad data", must be > actual 
+-98.0                        * errlim - limit check for xtravar11 "bad data", must be > actual 
+-98.0                        * errlim - limit check for xtravar12 "bad data", must be > actual 
+-98.0                        * errlim - limit check for xtravar13 "bad data", must be > actual 
+-998.0                        * errlim - limit check for xtravar14 "bad data", must be > actual 
+-998.0                        * errlim - limit check for xtravar15 "bad data", must be > actual 
+-998.0                        * errlim - limit check for xtravar16 "bad data", must be > actual 
+-998.0                        * errlim - limit check for xtravar17 "bad data", must be > actual 
+-998.0                        * errlim - limit check for xtravar18 "bad data", must be > actual 
+-998.0                        * errlim - limit check for xtravar19 "bad data", must be > actual 
+-998.0                        * errlim - limit check for xtravar20 "bad data", must be > actual 
+
+
+
+
+
+

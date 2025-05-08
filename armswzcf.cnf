@@ -1,0 +1,58 @@
+swf\        /* path for input files (incl. trailing "\") */
+26       /* number of data (reals) in input files (17 normal plus xtra)*/
+2        /* print flag for output files (0/1/2/3 = neither/c15/swc/both files) */
+0        /* print flag for fitting or test output files (0/1/2/3 = none/fit/test/both) */
+2.255  /* Cloud Fraction Equation a coefficient (real) */
+0.9381  /* Cloud Fraction Equation b (exponential) coefficient (real) */
+0.37   /* Difcld limit for ovc detection */
+0.90   /* Diffuse ratio limit for ovc detection */
+3      /* number of measurements for running DR StDev */
+0.05      /* DR StDev limit for Ovc detection */
+0.2       /* CosZ limit for cloud fraction retrieval */
+-8.0      /* "bad data" limit for cosz */
+-8.0      /* "bad data" limit for au */
+-998.0    /* "bad data" limit for tsw */
+-998.0    /* "bad data" limit for csw */
+-9998.0   /* "bad data" limit for tswfcg */
+-98.0     /* "bad data" limit for dif */
+-98.0     /* "bad data" limit for cdif */
+-9998.0   /* "bad data" limit for diffcg */
+-98.0     /* "bad data" limit for dir */
+-98.0     /* "bad data" limit for cdir */
+-8.0      /* "bad data" limit for difr */
+-8.0      /* "bad data" limit for cdifr */
+-98.0     /* "bad data" limit for ssw */
+-98.0      /* "bad data" limit for cssw */
+-9998.0      /* "bad data" limit for sswfcg */
+-998.0      /* "bad data" limit for SWup/SolX */
+-998.0      /* "bad data" limit for CSWup/CSolX */
+-998.0    /* "bad data" limit for xtra1 */
+-998.0    /* "bad data" limit for xtra2 */
+-998.0    /* "bad data" limit for xtra3 */
+-998.0    /* "bad data" limit for xtra4 */
+-998.0    /* "bad data" limit for xtra5 */
+-998.0    /* "bad data" limit for xtra6 */
+-998.0    /* "bad data" limit for xtra7 */
+-998.0    /* "bad data" limit for xtra8 */
+-998.0    /* "bad data" limit for xtra9 */
+-998.0    /* "bad data" limit for xtra10 */
+-998.0    /* "bad data" limit for xtra11 */
+-998.0    /* "bad data" limit for xtra12 */
+-998.0    /* "bad data" limit for xtra13 */
+-998.0    /* "bad data" limit for xtra14 */
+-998.0    /* "bad data" limit for xtra15 */
+-998.0    /* "bad data" limit for xtra16 */
+-998.0    /* "bad data" limit for xtra17 */
+-998.0    /* "bad data" limit for xtra18 */
+-998.0    /* "bad data" limit for xtra19 */
+-998.0    /* "bad data" limit for xtra20 */
+-998.0    /* "bad data" limit for xtra21 */
+-998.0    /* "bad data" limit for xtra22 */
+-998.0    /* "bad data" limit for xtra23 */
+-998.0    /* "bad data" limit for xtra24 */
+-998.0    /* "bad data" limit for xtra25 */
+-998.0    /* "bad data" limit for xtra26 */
+-998.0    /* "bad data" limit for xtra27 */
+-998.0    /* "bad data" limit for xtra28 */
+-998.0    /* "bad data" limit for xtra29 */
+-998.0    /* "bad data" limit for xtra30 */
